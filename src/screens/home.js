@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {findGamesForHomeThunk} from "../games/games-thunk";
-import GameCard from "./game-card";
+import GameCard from "../games/game-card";
 
 const Home = () => {
     const {currentUser} = useSelector((state) => state.users)

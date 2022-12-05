@@ -10,3 +10,8 @@ export const findGameByIdThunk = createAsyncThunk(
     'findGameById',
     (gameId) => gameService.findGameById(gameId)
 )
+
+export const findGamesBySearchTermThunk = createAsyncThunk(
+    'findGamesBySearchTerm',
+    (term) => gameService.findGamesBySearchTerm(term)
+)

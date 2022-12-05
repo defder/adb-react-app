@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findGameByIdThunk, findGamesForHomeThunk} from "./games-thunk";
+import {findGameByIdThunk, findGamesBySearchTermThunk, findGamesForHomeThunk} from "./games-thunk";
 
 const initialState = {
     games: [],
@@ -16,6 +16,9 @@ const gamesReducer = createSlice({
         },
         [findGameByIdThunk.fulfilled]: (state, action) => {
             state.details = action.payload
+        },
+        [findGamesBySearchTermThunk.fulfilled]: (state, action) => {
+            state.games = action.payload
         }
     }
 })
