@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg {
+  background-image: url(https://png.pngtree.com/png-vector/20190420/ourlarge/pngtree-vector-control-pad-icon-png-image_964496.jpg);
+  height: 100vh;
+}
+
+.bg-2 {
+  background-image: url(https://img.favpng.com/5/4/25/super-mario-bros-super-paper-mario-png-favpng-rXzHztqC6QSZ6ZrD9nkztRujV.jpg);
+  height: 100vh;
+}
+
+.bg-3 {
+  background-color: black;
+  height: 100vh;
+}

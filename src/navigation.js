@@ -20,31 +20,31 @@ const Navigation = () => {
             <li className="nav-item">
                 <Link to="/"
                       className={`nav-link ${currentPath === ''? 'active' : ''}`}>
-                    Home
+                    <span><i className="fa fa-home"/> Home</span>
                 </Link>
             </li>
             <li className="nav-item">
                 <Link to="/search"
                       className={`nav-link ${currentPath === 'search'? 'active' : ''}`}>
-                    Search
+                    <span><i className="fa fa-search"/> Search</span>
                 </Link>
             </li>
             <li className={`nav-item ${currentUser ? '' : 'd-none'}`}>
                 <Link to="/profile"
                       className={`nav-link ${currentPath === 'profile'? 'active' : ''}`}>
-                    Profile
+                    <span><i className="fa fa-user"/> Profile</span>
                 </Link>
             </li>
             <li className={`nav-item ${currentUser ? 'd-none' : ''}`}>
                 <Link to="/login"
                       className={`nav-link ${currentPath === 'login'? 'active' : ''}`}>
-                    Login
+                    <span><i className="fa fa-sign-in"/> Login</span>
                 </Link>
             </li>
             <li className={`nav-item ${currentUser ? 'd-none' : ''}`}>
                 <Link to="/register"
                       className={`nav-link ${currentPath === 'register'? 'active' : ''}`}>
-                    Register
+                   <span><i className="fa fa-pencil"/> Register</span>
                 </Link>
             </li>
             <li className={`nav-item float-end ${currentUser ? '' : 'd-none'}`}>
