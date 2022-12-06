@@ -18,11 +18,15 @@ code {
 }
 
 .bg-2 {
-  background-image: url(https://img.favpng.com/5/4/25/super-mario-bros-super-paper-mario-png-favpng-rXzHztqC6QSZ6ZrD9nkztRujV.jpg);
-  height: 100vh;
+  background-image: url(https://cdn.create.vista.com/api/media/small/45471835/stock-vector-video-game-design);
+  height: 98vh;
 }
 
 .bg-3 {
   background-color: black;
-  height: 100vh;
+  height: 100vh
+}
+
+.little-margin-left {
+  margin-left: 10px;
 }

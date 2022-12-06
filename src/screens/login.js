@@ -45,7 +45,7 @@ const Login = () => {
                         </span>
                     </div>
                 </div>
-                <div className="col-6 bg">
+                <div className="col-6 bg-2">
                 </div>
             </div>
         </>

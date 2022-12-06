@@ -13,12 +13,14 @@ const Search = () => {
             <h1>SEARCH</h1>
             <div className="container-fluid d-flex justify-content-center">
                 <input
-                    className="form-control w-75 mb-3"
+                    className="form-control w-50 mb-3 border border-dark"
                     placeholder="Search games"
                     value={searchTerm}
                     onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                <button className="float-end btn btn-dark mb-3"
-                        onClick={() => {dispatch(findGamesBySearchTermThunk(searchTerm))}}>Search</button>
+                <button className="float-end btn btn-outline-dark mb-3"
+                        onClick={() => {dispatch(findGamesBySearchTermThunk(searchTerm))}}>
+                    <i className="fa fa-search"/>
+                </button>
             </div>
             {
                 games.map((game) =>

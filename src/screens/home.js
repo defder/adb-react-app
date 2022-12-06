@@ -17,7 +17,7 @@ const Home = () => {
         <div className="container">
             <div className="mt-3 mb-3">
                 {
-                    currentUser ? <h2> Recommended for you </h2> : <h2>Popular releases</h2>
+                    currentUser ? <h2> Recommended games for you </h2> : <h2>Popular game releases</h2>
                 }
             </div>
             <div className="row">
