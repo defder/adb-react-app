@@ -14,11 +14,16 @@ import {configureStore} from "@reduxjs/toolkit";
 import usersReducer from "./users/users-reducer";
 import {Provider} from "react-redux";
 import CurrentUser from "./users/current-user";
-import ProtectedLoginRegister from "./users/protect-login-registration";
+import gamesReducer from "./games/games-reducer"
+import 'font-awesome/css/font-awesome.min.css'
+import GameDetails from "./games/game-details";
+import entriesReducer from "./list-entries/entries-reducer"
 
 const store = configureStore({
     reducer: {
-        users: usersReducer
+        users: usersReducer,
+        games: gamesReducer,
+        entries: entriesReducer
     }
 })
 
@@ -33,14 +38,9 @@ function App() {
                         <Route index element={<Home/>}/>
                         <Route path="/search" element={<Search/>}/>
                         <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/login" element={
-                            <ProtectedLoginRegister>
-                            <Login/>
-                            </ProtectedLoginRegister>}/>
-                        <Route path="/register" element={
-                            <ProtectedLoginRegister>
-                            <Register/>
-                            </ProtectedLoginRegister>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        <Route path="/details/:gameId" element={<GameDetails/>}/>
                     </Routes>
                 </CurrentUser>
             </BrowserRouter>
