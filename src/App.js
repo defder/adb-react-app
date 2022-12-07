@@ -17,11 +17,13 @@ import CurrentUser from "./users/current-user";
 import gamesReducer from "./games/games-reducer"
 import 'font-awesome/css/font-awesome.min.css'
 import GameDetails from "./games/game-details";
+import entriesReducer from "./list-entries/entries-reducer"
 
 const store = configureStore({
     reducer: {
         users: usersReducer,
-        games: gamesReducer
+        games: gamesReducer,
+        entries: entriesReducer
     }
 })
 

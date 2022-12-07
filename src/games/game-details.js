@@ -6,6 +6,7 @@ import "../index.css"
 
 const GameDetails = () => {
     const {gameId} = useParams()
+    const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
     const {details} = useSelector((state) => state.games)
     useEffect(() => {
@@ -34,6 +35,9 @@ const GameDetails = () => {
                         <h5>Description</h5>
                         <p> {details.description_raw} </p>
                     </div>
+                </div>
+                <div className="row text-light">
+                    Placeholder for adding to game list.
                 </div>
             </div>
         </>
