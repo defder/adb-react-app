@@ -18,6 +18,7 @@ import gamesReducer from "./games/games-reducer"
 import 'font-awesome/css/font-awesome.min.css'
 import GameDetails from "./games/game-details";
 import entriesReducer from "./list-entries/entries-reducer"
+import ProtectedProfile from "./users/protected-profile";
 
 const store = configureStore({
     reducer: {
@@ -37,7 +38,10 @@ function App() {
                     <Routes>
                         <Route index element={<Home/>}/>
                         <Route path="/search" element={<Search/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/profile" element={
+                          <ProtectedProfile>
+                            <Profile/>
+                          </ProtectedProfile>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/details/:gameId" element={<GameDetails/>}/>
