@@ -12,3 +12,13 @@ export const findEntriesByUser = async (user) => {
     const response = await api.get(`${ENTRIES_API}/find/${user}`)
     return response.data
 }
+
+export const getEntryCategoriesCount = async () => {
+    const response = await api.get(`${ENTRIES_API}/count`)
+    return response.data
+}
+
+export const getEntryByGameIdAndUserId = async (gameId) => {
+    const response = await api.get(`${ENTRIES_API}/exists/${gameId}`)
+    return response.data
+}

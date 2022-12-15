@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 import {Navigate} from "react-router"
 import React from "react";
 
-const ProtectedProfile = ({children}) => {
+const ProtectedPrivateProfile = ({children}) => {
     const {currentUser} = useSelector((state) => state.users)
     if (currentUser) {
         return (children)
@@ -10,4 +10,4 @@ const ProtectedProfile = ({children}) => {
         return (<Navigate to={'/login'}/>)
     }
 }
-export default ProtectedProfile
+export default ProtectedPrivateProfile

@@ -29,3 +29,14 @@ export const profileThunk = createAsyncThunk(
     }
 )
 
+export const findUserByIdThunk = createAsyncThunk(
+    'findUserById',
+    async (uid) => await userService.findUserById(uid)
+)
+
+export const updateUserThunk = createAsyncThunk(
+    'updateUser',
+    async (updates) =>
+        await userService.updateUser(updates)
+)
+
