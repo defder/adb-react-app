@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 import {
     createEntryThunk,
     deleteEntryByIdThunk, findCurrentlyPlayingThunk,
-    findEntriesByUserThunk,
+    findEntriesByUserThunk, findEntryByGameIdThunk,
     getEntriesCountThunk,
     getExistingEntryThunk
 } from "./entries-thunk";
@@ -33,6 +33,9 @@ const entriesReducer = createSlice({
         },
         [findCurrentlyPlayingThunk.fulfilled]: (state, action) => {
             state.currentlyPlaying = action.payload
+        },
+        [findEntryByGameIdThunk.fulfilled]: (state, action) => {
+            state.entries = action.payload
         }
     }
 })

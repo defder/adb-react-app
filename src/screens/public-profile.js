@@ -23,12 +23,39 @@ const PublicProfile = () => {
                 publicProfile &&
                 <h1>{publicProfile.username}'s Profile </h1>
             }
+            <hr/>
             {
                 publicProfile &&
                 <div>
-                    <h2>Games List</h2>
                     <div className="row">
                         <div className="col-5">
+                            <h2>About {publicProfile.username}</h2>
+                            <div className="card mb-4">
+                                <div className="row">
+                                    <div className="col-sm-4 col-xs-4">
+                                        <p className="mb-0">First Name</p>
+                                    </div>
+                                    <div className="col-sm-8 col-xs-8">
+                                        <p className="text-muted mb-0">
+                                            {publicProfile.firstName ? publicProfile.firstName : "N/A"}
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div className="row">
+                                    <div className="col-sm-4 col-xs-4">
+                                        <p className="mb-0">Last Name</p>
+                                    </div>
+                                    <div className="col-sm-8 col-xs-8">
+                                        <p className="text-muted mb-0">
+                                            {publicProfile.lastName ? publicProfile.lastName : "N/A"}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-7">
+                            <h2>{publicProfile.username}'s Games List</h2>
                             <ul className="list-group">
                                 {
                                     entries?.map((entry) =>

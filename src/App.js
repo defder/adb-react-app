@@ -21,12 +21,15 @@ import entriesReducer from "./list-entries/entries-reducer"
 import ProtectedPrivateProfile from "./users/protected-private-profile";
 import PublicProfile from "./screens/public-profile";
 import EditProfile from "./screens/edit-profile";
+import reviewsReducer from "./reviews/reviews-reducer"
+import AllUsersEntries from "./list-entries/all-users-entries";
 
 const store = configureStore({
     reducer: {
         users: usersReducer,
         games: gamesReducer,
-        entries: entriesReducer
+        entries: entriesReducer,
+        reviews: reviewsReducer
     }
 })
 
@@ -52,6 +55,7 @@ function App() {
                             <ProtectedPrivateProfile>
                                 <EditProfile/>
                             </ProtectedPrivateProfile>}/>
+                        <Route path="/details/entries/:gameId" element={<AllUsersEntries/>}/>
                     </Routes>
                 </CurrentUser>
             </BrowserRouter>
