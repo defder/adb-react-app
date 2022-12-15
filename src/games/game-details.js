@@ -3,7 +3,7 @@ import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {findGameByIdThunk} from "./games-thunk";
 import "../index.css"
-import {createEntryThunk, getExistingEntryThunk} from "../list-entries/entries-thunk";
+import {createEntryThunk, deleteEntryByIdThunk, getExistingEntryThunk} from "../list-entries/entries-thunk";
 
 const GameDetails = () => {
     const {gameId} = useParams()
@@ -20,13 +20,16 @@ const GameDetails = () => {
     const handleStatus = (e) => {
         setStatus(e.target.value)
     }
-
     const addGameEntryBtn = () => {
         dispatch(createEntryThunk({
             status,
             gameId,
             title: details.name
         }))
+        dispatch(getExistingEntryThunk(gameId))
+    }
+    const deleteGameEntryBtn = () => {
+        dispatch(deleteEntryByIdThunk(gameId))
         dispatch(getExistingEntryThunk(gameId))
     }
 
@@ -43,7 +46,7 @@ const GameDetails = () => {
                 <div className="container-fluid bg-3 border border-info">
                     <h1 className="text-light">{details.name}</h1>
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-6 col-6">
                             <div className="card border">
                                 <img src={details.background_image} className="card-img-top" alt={''}/>
                                 <div className="card-body">
@@ -57,13 +60,13 @@ const GameDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-8 text-light">
-                            <h5>Description</h5>
-                            <p> {details.description_raw} </p>
+                        <div className="col-xxl-8 col-xl-8 col-lg-7 col-md-6 col-sm-6 col-6 text-light">
+                            <h5 className="d-none d-lg-block">Description</h5>
+                            <p className="d-none d-lg-block"> {details.description_raw} </p>
                         </div>
                     </div>
                     <div className="row text-light">
-                        <div className="col-4">
+                        <div className="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-6 col-6">
                             <div className="mt-3">
                                 {
                                     currentEntry &&
@@ -88,12 +91,15 @@ const GameDetails = () => {
                                 }
                                 {
                                     currentEntry &&
-                                    <button className="btn btn-outline-danger mt-3 ms-3">Delete entry</button>
+                                    <button className="btn btn-outline-danger mt-3 ms-3" onClick={deleteGameEntryBtn}>
+                                        Delete entry
+                                    </button>
                                 }
                             </div>
                         </div>
-                        <div className="col-8">
-                            PLACEHOLDER FOR REVIEWS
+                        <div className="col-xxl-8 col-xl-8 col-lg-7 col-md-6 col-sm-6 col-6 text-light">
+                            <h2>Reviews</h2>
+                            <hr/>
                         </div>
                     </div>
                 </div>

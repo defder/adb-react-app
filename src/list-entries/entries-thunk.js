@@ -1,5 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit"
-import {createEntry, findEntriesByUser, getEntryByGameIdAndUserId, getEntryCategoriesCount} from "./entries-service";
+import {
+    createEntry,
+    deleteEntryByGameId, findCurrentlyPlaying,
+    findEntriesByUser,
+    getEntryByGameIdAndUserId,
+    getEntryCategoriesCount
+} from "./entries-service";
 
 export const createEntryThunk = createAsyncThunk(
     'createEntry',
@@ -19,4 +25,14 @@ export const getEntriesCountThunk = createAsyncThunk(
 export const getExistingEntryThunk = createAsyncThunk(
     'getExistingEntry',
     async (gameId) => getEntryByGameIdAndUserId(gameId)
+)
+
+export const deleteEntryByIdThunk = createAsyncThunk(
+    'deleteEntryById',
+    async (gameId) => deleteEntryByGameId(gameId)
+)
+
+export const findCurrentlyPlayingThunk = createAsyncThunk(
+    'findCurrentlyPlaying',
+    async () => findCurrentlyPlaying()
 )

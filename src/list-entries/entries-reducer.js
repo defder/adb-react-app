@@ -1,12 +1,19 @@
 import {createSlice} from "@reduxjs/toolkit"
-import {createEntryThunk, findEntriesByUserThunk, getEntriesCountThunk, getExistingEntryThunk} from "./entries-thunk";
+import {
+    createEntryThunk,
+    deleteEntryByIdThunk, findCurrentlyPlayingThunk,
+    findEntriesByUserThunk,
+    getEntriesCountThunk,
+    getExistingEntryThunk
+} from "./entries-thunk";
 
 const entriesReducer = createSlice({
     name: "entries",
     initialState: {
       entries: [],
       counts: {},
-      currentEntry: {}
+      currentEntry: {},
+      currentlyPlaying: []
     },
     extraReducers: {
         [createEntryThunk.fulfilled]: (state, action) => {
@@ -20,6 +27,12 @@ const entriesReducer = createSlice({
         },
         [getExistingEntryThunk.fulfilled]: (state, action) => {
             state.currentEntry = action.payload
+        },
+        [deleteEntryByIdThunk.fulfilled]: (state, action) => {
+            state.entries = state.entries.filter(e => e._id !== action.payload)
+        },
+        [findCurrentlyPlayingThunk.fulfilled]: (state, action) => {
+            state.currentlyPlaying = action.payload
         }
     }
 })

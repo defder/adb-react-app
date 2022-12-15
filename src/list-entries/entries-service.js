@@ -22,3 +22,13 @@ export const getEntryByGameIdAndUserId = async (gameId) => {
     const response = await api.get(`${ENTRIES_API}/exists/${gameId}`)
     return response.data
 }
+
+export const deleteEntryByGameId = async (gameId) => {
+    const response = await api.delete(`${ENTRIES_API}/delete/${gameId}`)
+    return response.data
+}
+
+export const findCurrentlyPlaying = async () => {
+    const response = await api.get(`${ENTRIES_API}/find/playing`)
+    return response.data
+}
