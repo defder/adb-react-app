@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {findGameByIdThunk} from "./games-thunk";
 import "../index.css"
 import {createEntryThunk, deleteEntryByIdThunk, getExistingEntryThunk} from "../list-entries/entries-thunk";
+import {Link} from "react-router-dom";
+import ReviewsComponent from "../reviews/reviews-component";
 
 const GameDetails = () => {
     const {gameId} = useParams()
@@ -61,6 +63,16 @@ const GameDetails = () => {
                             </div>
                         </div>
                         <div className="col-xxl-8 col-xl-8 col-lg-7 col-md-6 col-sm-6 col-6 text-light">
+                            <div className="row">
+                                <div className="col-6">
+                                    <p className="fw-bolder">Game Released: {details.released}</p>
+                                </div>
+                                <div className="col-6">
+                                    <Link to={`/details/entries/${gameId}`} className="btn btn-outline-info">
+                                        See Users who added this game to their lists.
+                                    </Link>
+                                </div>
+                            </div>
                             <h5 className="d-none d-lg-block">Description</h5>
                             <p className="d-none d-lg-block"> {details.description_raw} </p>
                         </div>
@@ -100,6 +112,7 @@ const GameDetails = () => {
                         <div className="col-xxl-8 col-xl-8 col-lg-7 col-md-6 col-sm-6 col-6 text-light">
                             <h2>Reviews</h2>
                             <hr/>
+                            <ReviewsComponent gameId={gameId}/>
                         </div>
                     </div>
                 </div>

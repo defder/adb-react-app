@@ -32,3 +32,8 @@ export const findCurrentlyPlaying = async () => {
     const response = await api.get(`${ENTRIES_API}/find/playing`)
     return response.data
 }
+
+export const findEntryByGameId = async (gameId) => {
+    const response = await api.get(`${ENTRIES_API}/findAll/${gameId}`)
+    return response.data
+}
