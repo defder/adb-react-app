@@ -23,3 +23,14 @@ export const profile = async () => {
     const response = await api.post(`${API_URL}/profile`)
     return response.data
 }
+
+export const findUserById = async (uid) => {
+    const response = await api.get(`${API_URL}/users/${uid}`)
+    const user = response.data
+    return user
+}
+
+export const updateUser = async (updates) => {
+    const response = await api.put(`${API_URL}/profile/update`, updates)
+    return response.data
+}

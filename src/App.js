@@ -18,6 +18,9 @@ import gamesReducer from "./games/games-reducer"
 import 'font-awesome/css/font-awesome.min.css'
 import GameDetails from "./games/game-details";
 import entriesReducer from "./list-entries/entries-reducer"
+import ProtectedPrivateProfile from "./users/protected-private-profile";
+import PublicProfile from "./screens/public-profile";
+import EditProfile from "./screens/edit-profile";
 
 const store = configureStore({
     reducer: {
@@ -37,10 +40,18 @@ function App() {
                     <Routes>
                         <Route index element={<Home/>}/>
                         <Route path="/search" element={<Search/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/profile" element={
+                          <ProtectedPrivateProfile>
+                            <Profile/>
+                          </ProtectedPrivateProfile>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/details/:gameId" element={<GameDetails/>}/>
+                        <Route path="/profile/:uid" element={<PublicProfile/>}/>
+                        <Route path="/profile/edit" element={
+                            <ProtectedPrivateProfile>
+                                <EditProfile/>
+                            </ProtectedPrivateProfile>}/>
                     </Routes>
                 </CurrentUser>
             </BrowserRouter>

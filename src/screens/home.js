@@ -5,6 +5,7 @@ import GameCard from "../games/game-card";
 
 const Home = () => {
     const {currentUser} = useSelector((state) => state.users)
+    const {currentlyPlaying} = useSelector((state) => state.entries)
     const {homeDisplay} = useSelector((state) => state.games)
     const dispatch = useDispatch()
     const homeDisplayTop = homeDisplay.slice(0, 4)

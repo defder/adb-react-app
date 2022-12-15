@@ -4,7 +4,8 @@ import {findGameByIdThunk, findGamesBySearchTermThunk, findGamesForHomeThunk} fr
 const initialState = {
     games: [],
     details: {},
-    homeDisplay: []
+    homeDisplay: [],
+    loading: false,
 }
 
 const gamesReducer = createSlice({
@@ -15,7 +16,11 @@ const gamesReducer = createSlice({
             state.homeDisplay = action.payload
         },
         [findGameByIdThunk.fulfilled]: (state, action) => {
+            state.loading = false
             state.details = action.payload
+        },
+        [findGameByIdThunk.pending]: (state, action) => {
+            state.loading = true
         },
         [findGamesBySearchTermThunk.fulfilled]: (state, action) => {
             state.games = action.payload
